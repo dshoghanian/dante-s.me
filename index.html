@@ -1,276 +1,607 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dante Shoghanian — Data Scientist</title>
 
-<html>
-	<head>
-		<title>Dante's Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-24RHNC1M4W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-24RHNC1M4W');
+  </script>
 
-		<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-24RHNC1M4W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="assets/css/portfolio.css" />
+</head>
+<body>
 
-  gtag('config', 'G-24RHNC1M4W');
-</script>
-		
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			html {
-				scroll-behavior: smooth;
-			}
+<!-- ── NAV ────────────────────────────────────────────────── -->
+<nav id="sitenav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">DS</a>
 
-			#easter-egg {
-				display: none;
-				text-align: center;
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				z-index: 1000;
-			}
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+    </ul>
 
-			#easter-egg img {
-				max-width: 90%;
-				max-height: 90%;
-				border: 5px solid #fff;
-				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-				border-radius: 10px;
-			}
+    <div class="nav-actions">
+      <a href="https://www.linkedin.com/in/dshoghanian/" target="_blank" class="nav-icon" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/dshoghanian" target="_blank" class="nav-icon" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="/downloads/Dante_Shoghanian_Resume.pdf" target="_blank" class="btn btn-primary btn-sm nav-resume">Resume</a>
+    </div>
+  </div>
+</nav>
 
-			#close-easter-egg {
-				display: block;
-				margin: 10px auto;
-				padding: 10px 20px;
-				background: #ff5e57;
-				color: white;
-				border: none;
-				border-radius: 5px;
-				cursor: pointer;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="container hero-inner">
+    <pre class="hero-ascii"> ____    _    _   _ _____ _____
+|  _ \  / \  | \ | |_   _| ____|
+| | | |/ _ \ |  \| | | | |  _|
+| |_| / ___ \| |\  | | | | |___
+|____/_/   \_\_| \_| |_| |_____|</pre>
+    <span class="hero-surname">Shoghanian</span>
 
-		<!-- Wrapper -->
-		<div id="wrapper" class="fade-in">
+    <p class="hero-tagline">M.S. Business Analytics &mdash; building ML systems at the intersection of data, strategy, and domain expertise.</p>
 
-			<!-- Intro -->
-			<div id="intro">
-				<h1>Dante Shoghanian<br /></h1>
-				<p>Welcome to my website where I share my journey and insights as an M.S. Business Analytics student.</p>
-				<div class="skill-tags">
-  <span>Python</span>
-  <span>SQL</span>
-  <span>Tableau</span>
-  <span>NLP</span>
-  <span>ArcGIS</span>
-  <span>Machine Learning</span>
-  <span>Deep Learning</span>
-  <span>Consulting</span>
-  <span>Financial Modeling</span>
+    <p class="hero-status">Open to full-time roles in Los Angeles / remote</p>
+
+    <div class="hero-ctas">
+      <a href="#work" class="btn btn-primary">View Work</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+
+    <div class="hero-scroll-hint">Scroll</div>
+  </div>
+</section>
+
+<!-- ── WORK ───────────────────────────────────────────────── -->
+<section id="work" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-index">// 01</span>
+      <h2>Work</h2>
+    </div>
+
+    <!-- Featured -->
+    <div class="project-featured reveal">
+      <a href="https://github.com/dshoghanian/hospital-price-transparency" target="_blank" class="project-featured__img">
+        <img src="images/healthcare.jpg" alt="Healthcare Price Transparency" />
+      </a>
+      <div class="project-featured__content">
+        <p class="project-featured__badge">Featured Project</p>
+        <h3 class="project-featured__title">Healthcare Price Transparency</h3>
+        <p class="project-featured__hook">Why does the same surgery cost 10&times; more across the street?</p>
+        <p class="project-featured__desc">
+          Built an ML pipeline to surface the hidden drivers behind U.S. hospital pricing variability.
+          Integrated hospital and procedure-level datasets across regions, insurance types, and patient
+          demographics. Models (Naïve Bayes, SVM, HDBSCAN, Association Rules) identify pricing clusters
+          and outliers — turning opaque billing data into actionable policy insights.
+        </p>
+        <div class="proj-tags">
+          <span>Python</span><span>scikit-learn</span><span>HDBSCAN</span><span>MLxtend</span><span>Dask</span><span>pandas</span>
+        </div>
+        <a href="https://github.com/dshoghanian/hospital-price-transparency" target="_blank" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+
+    <!-- Project Grid -->
+    <div class="project-grid reveal">
+
+      <a href="https://github.com/dshoghanian/treasury-yield-regime-forecasting" target="_blank" class="project-card">
+        <div class="project-card__img-wrap"><img src="images/fred_t.jpg" alt="Treasury Yield Forecasting" /></div>
+        <div class="project-card__body">
+          <p class="project-card__num">01</p>
+          <h3 class="project-card__title">Treasury Yield Regime Forecasting</h3>
+          <p class="project-card__desc">Regime-aware neural networks (FNN, CNN, LSTM, Transformer) forecasting the 10-Year U.S. Treasury yield using macroeconomic, market, and Fed policy data across a decade. Includes shock simulations and feature importance analysis.</p>
+          <div class="project-card__footer">
+            <span class="project-card__stack">PyTorch · LSTM · Transformer</span>
+            <span class="project-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://github.com/dshoghanian/elp-NLP-Project" target="_blank" class="project-card">
+        <div class="project-card__img-wrap"><img src="images/elp.png" alt="EPL NLP" /></div>
+        <div class="project-card__body">
+          <p class="project-card__num">02</p>
+          <h3 class="project-card__title">EPL Transfer Narrative NLP</h3>
+          <p class="project-card__desc">NLP + network science on Premier League transfer press coverage and Reddit discourse from 2016–2025. Quantifies how hype independently predicts competitive outcomes beyond financial spend alone.</p>
+          <div class="project-card__footer">
+            <span class="project-card__stack">NLP · Network Science · Reddit API</span>
+            <span class="project-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://github.com/dshoghanian/LSTM-Power-Forecasting" target="_blank" class="project-card">
+        <div class="project-card__img-wrap"><img src="images/household-electricity.jpg" alt="Electricity Forecasting" /></div>
+        <div class="project-card__body">
+          <p class="project-card__num">03</p>
+          <h3 class="project-card__title">Household Electricity Demand Forecasting</h3>
+          <p class="project-card__desc">PyTorch LSTM forecasting daily household electricity consumption from multi-year power usage data structured as supervised learning sequences. Evaluated on RMSE, MAE, and R².</p>
+          <div class="project-card__footer">
+            <span class="project-card__stack">PyTorch · LSTM · Time Series</span>
+            <span class="project-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://github.com/dshoghanian/telco-churn-tabnet" target="_blank" class="project-card">
+        <div class="project-card__img-wrap"><img src="images/TabNet.png" alt="Telco Churn TabNet" /></div>
+        <div class="project-card__body">
+          <p class="project-card__num">04</p>
+          <h3 class="project-card__title">Telco Churn — TabNet</h3>
+          <p class="project-card__desc">End-to-end replication of TabNet (Google AI) benchmarked against XGBoost and sklearn on telecom churn prediction. Highlights interpretable attention mechanisms on tabular data.</p>
+          <div class="project-card__footer">
+            <span class="project-card__stack">TabNet · XGBoost · scikit-learn</span>
+            <span class="project-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://github.com/dshoghanian/mall-analysis" target="_blank" class="project-card">
+        <div class="project-card__img-wrap"><img src="images/Mall.jpg" alt="Mall Analysis" /></div>
+        <div class="project-card__body">
+          <p class="project-card__num">05</p>
+          <h3 class="project-card__title">California Mall Sales Analysis</h3>
+          <p class="project-card__desc">Regression and spatial analysis of California mall sales performance, identifying demographic and location drivers to help operators optimize marketing strategy and profitability.</p>
+          <div class="project-card__footer">
+            <span class="project-card__stack">Python · Regression · GIS</span>
+            <span class="project-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://github.com/dshoghanian/Projects/blob/main/UEFA%20Champions%20League.ipynb" target="_blank" class="project-card">
+        <div class="project-card__img-wrap"><img src="images/UEFA2.jpg" alt="UEFA Analysis" /></div>
+        <div class="project-card__body">
+          <p class="project-card__num">06</p>
+          <h3 class="project-card__title">UEFA Champions League Analysis</h3>
+          <p class="project-card__desc">Historical pattern analysis of 68 years of Champions League data (1955–2023), surfacing trends in match performance, team dominance cycles, and final-stage outcomes.</p>
+          <div class="project-card__footer">
+            <span class="project-card__stack">pandas · seaborn · matplotlib</span>
+            <span class="project-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://github.com/dshoghanian/Projects/blob/main/Nvidia%20Financial%20Analysis/Nvidia_Presentation.pdf" target="_blank" class="project-card">
+        <div class="project-card__img-wrap"><img src="images/nvidia.jpg" alt="Nvidia Analysis" /></div>
+        <div class="project-card__body">
+          <p class="project-card__num">07</p>
+          <h3 class="project-card__title">Nvidia Financial &amp; Strategic Analysis</h3>
+          <p class="project-card__desc">Comprehensive analysis of Nvidia's strategic position — supply chain, GPU/AI market dynamics, competitive moat, and DCF-based financial forecasts with pro forma modeling.</p>
+          <div class="project-card__footer">
+            <span class="project-card__stack">Financial Modeling · Excel · DCF</span>
+            <span class="project-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://github.com/dshoghanian/Projects/blob/main/OCTA%20Travel%20Forecast.pdf" target="_blank" class="project-card">
+        <div class="project-card__img-wrap"><img src="images/octa.jpg" alt="OCTA Travel Forecast" /></div>
+        <div class="project-card__body">
+          <p class="project-card__num">08</p>
+          <h3 class="project-card__title">OCTA Travel Demand Forecast</h3>
+          <p class="project-card__desc">GIS and transportation modeling for the Orange County Transportation Authority — analyzing population growth, traffic flow, and bikeway usage to support infrastructure and land-use planning.</p>
+          <div class="project-card__footer">
+            <span class="project-card__stack">ArcGIS · GIS · Urban Planning</span>
+            <span class="project-card__arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── AWARDS ─────────────────────────────────────────────── -->
+<section id="awards" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-index">// 02</span>
+      <h2>Awards</h2>
+    </div>
+
+    <div class="awards-grid">
+
+      <div class="award-card reveal d1">
+        <img src="images/IDEACORPS_2026.jpg" alt="IDEAcorp 2026 Award" class="award-card__img" />
+        <div class="award-card__body">
+          <p class="award-card__year">2026</p>
+          <h3 class="award-card__title">1st Place &mdash; IDEAcorp MBA Consulting Challenge</h3>
+          <p class="award-card__desc">
+            Awarded top prize in a national MBA consulting competition during New Orleans Entrepreneur Week.
+            Partnered with AutoDive to design an 18-month strategy accelerating adoption of autonomous
+            aquaculture systems, reducing farmer risk, labor dependency, and operational uncertainty.
+          </p>
+          <a href="https://github.com/dshoghanian/Projects/blob/main/IDEAcorps__LMU_X_AUTODIVE_2026_LMU.pdf" target="_blank" class="btn btn-ghost btn-sm">View Presentation</a>
+        </div>
+      </div>
+
+      <div class="award-card reveal d2">
+        <img src="images/IDEAcorp_Award_photo.jpg" alt="IDEAcorp 2025 Award" class="award-card__img" />
+        <div class="award-card__body">
+          <p class="award-card__year">2025</p>
+          <h3 class="award-card__title">1st Place &mdash; IDEAcorp MBA Consulting Challenge</h3>
+          <p class="award-card__desc">
+            Awarded $5,000 as top MBA team in a national consulting competition. Led go-to-market strategy
+            for Tipzy, an AI-driven DJ platform enhancing in-venue engagement. Helped secure $20,000 in
+            non-dilutive funding for the client.
+          </p>
+          <a href="https://github.com/dshoghanian/Projects/blob/main/Loyola%20Marymount%20University%20-%20Tipzy%203.25.25.pdf" target="_blank" class="btn btn-ghost btn-sm">View Presentation</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────────────── -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-index">// 03</span>
+      <h2>About</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-bio reveal">
+        <p>
+          I'm a <strong>data scientist and analyst</strong> completing my M.S. in Business Analytics at
+          Loyola Marymount University. I build systems that translate messy, real-world data into decisions
+          people can actually act on.
+        </p>
+        <p>
+          My work spans <strong>machine learning</strong>, <strong>NLP</strong>, <strong>deep learning</strong>,
+          and <strong>financial modeling</strong> — with a consistent focus on domains where the stakes are high:
+          healthcare, finance, and infrastructure. I think carefully about what a model is actually saying
+          before I report what it found.
+        </p>
+        <p>
+          Outside the code, I'm a football obsessive (YNWA), a Formula 1 tactics nerd, and someone who
+          thinks the best analytics work starts with a genuinely interesting question.
+        </p>
+      </div>
+
+      <div class="about-facts reveal d1">
+        <div class="about-fact">
+          <p class="about-fact__label">Currently</p>
+          <p class="about-fact__value">M.S. Business Analytics<br/>Loyola Marymount University</p>
+        </div>
+        <div class="about-fact">
+          <p class="about-fact__label">Location</p>
+          <p class="about-fact__value">Los Angeles, CA</p>
+        </div>
+        <div class="about-fact">
+          <p class="about-fact__label">Open to</p>
+          <p class="about-fact__value">Full-time &amp; contract roles<br/>On-site, hybrid, or remote</p>
+        </div>
+        <div class="about-fact">
+          <p class="about-fact__label">Interests</p>
+          <p class="about-fact__value">Football &middot; Formula 1<br/>Healthcare &middot; Finance</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ─────────────────────────────────────────────── -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-index">// 04</span>
+      <h2>Skills</h2>
+    </div>
+
+    <div class="skills-table reveal">
+
+      <div class="skill-row">
+        <span class="skill-row__cat">Languages</span>
+        <div class="skill-chips">
+          <span>Python</span><span>SQL</span><span>R</span><span>JavaScript</span><span>Bash</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill-row__cat">ML / DL</span>
+        <div class="skill-chips">
+          <span>PyTorch</span><span>scikit-learn</span><span>LSTM</span><span>Transformer</span>
+          <span>TabNet</span><span>XGBoost</span><span>HDBSCAN</span><span>MLxtend</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill-row__cat">NLP</span>
+        <div class="skill-chips">
+          <span>BERT</span><span>spaCy</span><span>NLTK</span><span>Sentiment Analysis</span>
+          <span>Network Science</span><span>Reddit API</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill-row__cat">Analytics</span>
+        <div class="skill-chips">
+          <span>Tableau</span><span>Power BI</span><span>Alteryx</span><span>Dask</span>
+          <span>pandas</span><span>NumPy</span><span>ArcGIS</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill-row__cat">Domain</span>
+        <div class="skill-chips">
+          <span>Healthcare Analytics</span><span>Financial Modeling</span><span>Sports Analytics</span>
+          <span>Consulting</span><span>Urban Planning</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ─────────────────────────────────────── -->
+<section id="certifications" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-index">// 05</span>
+      <h2>Certifications</h2>
+    </div>
+
+    <div class="cert-grid">
+
+      <a href="certificates/Google_Analytics.pdf" target="_blank" class="cert-card reveal">
+        <div class="cert-card__top">
+          <span class="cert-card__num">01</span>
+          <i class="fas fa-certificate cert-card__icon"></i>
+        </div>
+        <div class="cert-card__body">
+          <p class="cert-card__issuer">Google / Coursera</p>
+          <h3 class="cert-card__title">Google Data Analytics Certificate</h3>
+          <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+        </div>
+      </a>
+
+      <a href="certificates/Tableau_Fundamentals.pdf" target="_blank" class="cert-card reveal d1">
+        <div class="cert-card__top">
+          <span class="cert-card__num">02</span>
+          <i class="fas fa-certificate cert-card__icon"></i>
+        </div>
+        <div class="cert-card__body">
+          <p class="cert-card__issuer">Tableau / Salesforce</p>
+          <h3 class="cert-card__title">Tableau Desktop Fundamentals</h3>
+          <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+        </div>
+      </a>
+
+      <a href="certificates/Dask.pdf" target="_blank" class="cert-card reveal d2">
+        <div class="cert-card__top">
+          <span class="cert-card__num">03</span>
+          <i class="fas fa-certificate cert-card__icon"></i>
+        </div>
+        <div class="cert-card__body">
+          <p class="cert-card__issuer">DataCamp</p>
+          <h3 class="cert-card__title">Parallel Programming with Dask in Python</h3>
+          <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+        </div>
+      </a>
+
+      <a href="certificates/Managing Big Data with MySQL.pdf" target="_blank" class="cert-card reveal">
+        <div class="cert-card__top">
+          <span class="cert-card__num">04</span>
+          <i class="fas fa-certificate cert-card__icon"></i>
+        </div>
+        <div class="cert-card__body">
+          <p class="cert-card__issuer">Duke University / Coursera</p>
+          <h3 class="cert-card__title">Managing Big Data with MySQL</h3>
+          <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+        </div>
+      </a>
+
+      <a href="certificates/Data Analysis with R.pdf" target="_blank" class="cert-card reveal d1">
+        <div class="cert-card__top">
+          <span class="cert-card__num">05</span>
+          <i class="fas fa-certificate cert-card__icon"></i>
+        </div>
+        <div class="cert-card__body">
+          <p class="cert-card__issuer">DataCamp</p>
+          <h3 class="cert-card__title">Data Analysis with R</h3>
+          <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+        </div>
+      </a>
+
+      <a href="certificates/Data Manipulation with pandas.pdf" target="_blank" class="cert-card reveal d2">
+        <div class="cert-card__top">
+          <span class="cert-card__num">06</span>
+          <i class="fas fa-certificate cert-card__icon"></i>
+        </div>
+        <div class="cert-card__body">
+          <p class="cert-card__issuer">DataCamp</p>
+          <h3 class="cert-card__title">Data Manipulation with pandas</h3>
+          <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+        </div>
+      </a>
+
+      <a href="certificates/Ax.pdf" target="_blank" class="cert-card reveal">
+        <div class="cert-card__top">
+          <span class="cert-card__num">07</span>
+          <i class="fas fa-certificate cert-card__icon"></i>
+        </div>
+        <div class="cert-card__body">
+          <p class="cert-card__issuer">Alteryx</p>
+          <h3 class="cert-card__title">Alteryx Designer Core</h3>
+          <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────────────── -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-index">// 06</span>
+      <h2>Contact</h2>
+    </div>
+
+    <div class="contact-body reveal">
+      <h2 class="contact-headline">Let's work<br/>together.</h2>
+      <p class="contact-sub">Open to full-time roles, contract work, and interesting problems.</p>
+
+      <div class="contact-links">
+        <a href="mailto:dshoghanian@gmail.com" class="contact-link">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+        <a href="https://www.linkedin.com/in/dshoghanian/" target="_blank" class="contact-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/dshoghanian" target="_blank" class="contact-link">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+
+      <a href="/downloads/Dante_Shoghanian_Resume.pdf" target="_blank" class="btn btn-primary">Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer id="sitefooter">
+  <div class="container footer-inner">
+    <p class="footer-copy">&copy; 2026 Dante Shoghanian</p>
+    <nav class="footer-links">
+      <a href="Awards.html">Awards</a>
+      <a href="#certifications">Certifications</a>
+      <a href="interests.html">Interests</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ── Easter Egg ─────────────────────────────────────────── -->
+<div id="easter-egg">
+  <img src="images/liverpool.jpg" alt="You'll Never Walk Alone" />
+  <button id="close-easter-egg">Close &times;</button>
 </div>
-				<ul class="actions" style="visibility: hidden; opacity: 0;">
-  					<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-				</ul>
-			</div>
 
-			<!-- Header -->
-			<header id="header">
-				<a href="index.html" class="logo">Dante's Portfolio</a>
-			</header>
+<canvas id="lissajous"></canvas>
 
-			<!-- Nav -->
-			<nav id="nav">
-				<ul class="links">
-					<li class="active"><a href="index.html">Projects</a></li>
-					<li><a href="Awards.html">Awards</a></li>
-					<li><a href="interests.html">Interests</a></li>
-					<li><a href="Certifications.html">Certifications</a></li>
-					<li><a href="/downloads/Dante_Shoghanian_Resume.pdf" target="_blank">Resume</a></li>
+<!-- ── Scripts ────────────────────────────────────────────── -->
+<script>
+  // Flow field
+  (function() {
+    const canvas = document.getElementById('lissajous');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const COUNT = 200;
+    let W, H, particles, time = 0;
 
-				</ul>
-				<ul class="icons">
-					<li><a href="https://www.linkedin.com/in/dshoghanian/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://github.com/dshoghanian" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-				</ul>
-			</nav>
+    function resize() {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width  = W;
+      canvas.height = H;
+    }
 
-			<!-- Main -->
-			<div id="main">
+    function spawn() {
+      const p = { x: Math.random() * W, y: Math.random() * H, px: 0, py: 0,
+                  speed: 0.7 + Math.random() * 0.9, life: 0,
+                  maxLife: 160 + Math.random() * 200 };
+      p.px = p.x; p.py = p.y;
+      return p;
+    }
 
-				<!-- Featured Post -->
-				<article class="post featured">
-					<header class="major">
-						<h2><a href="https://github.com/dshoghanian/hospital-price-transparency">Healthcare Price Transparency</a></h2>
-						<p>Developed a machine learning solution to improve transparency in U.S. hospital pricing by analyzing large-scale healthcare data. The project aimed to identify the key drivers behind the wide variation in procedure costs across hospitals and regions. By integrating hospital and procedure-level datasets, the model uncovered pricing patterns influenced by location, insurance providers, and patient type. The findings support data-driven policy insights to make healthcare pricing more equitable and understandable.</p>
-					</header>
-					<a href="https://github.com/dshoghanian/hospital-price-transparency" class="image main"><img src="images/healthcare.jpg" alt="" /></a>
-					<ul class="actions special">
-						<li><a href="https://github.com/dshoghanian/hospital-price-transparency" class="button large">View Project</a></li>
-					</ul>
-				</article>
+    function getAngle(x, y, t) {
+      const s = 0.002;
+      return (Math.sin(x * s + t * 0.25) * Math.cos(y * s + t * 0.2) +
+              Math.sin((x + y) * s * 0.5 + t * 0.12)) * Math.PI * 2;
+    }
 
-				<!-- Posts -->
-				<section class="posts">
-					<article>
-						<header>
-							<h2><a href="https://github.com/dshoghanian/treasury-yield-regime-forecasting">Forecasting U.S. Treasury Yields with Regime-Aware Neural Networks</a></h2>
-						</header>
-						<a href="https://github.com/dshoghanian/treasury-yield-regime-forecasting" class="image fit"><img src="images/fred_t.jpg" alt="" /></a>
-						<p>This project leverages regime-aware neural networks to forecast the 10-Year U.S. Treasury yield using a decade of macroeconomic, market, and policy data. By integrating deep learning models (FNN, CNN, LSTM, Transformer) with monetary policy regime indicators, the analysis captures both trend dynamics and directional shifts. The approach also includes economic shock simulations and feature importance analysis to provide actionable insights for market forecasting.</p>
-						<ul class="actions special">
-							<li><a href="https://github.com/dshoghanian/treasury-yield-regime-forecasting" class="button">View File</a></li>
-							<li><a href="https://github.com/dshoghanian/Projects/blob/main/treasury_yield.pdf" class="button">View Presentation</a></li>
-						</ul>
-					</article>
-					<article>
-					<header>
-						<h2><a href="https://github.com/dshoghanian/elp-NLP-Project">EPL Transfer Narrative NLP Project</a></h2>
-					</header>
-					<a href="https://github.com/dshoghanian/elp-NLP-Project" class="image fit"><img src="images/elp.png" alt="" /></a>
-					<p>This project applies Natural Language Processing (NLP), network science, and statistical modeling to analyze how transfer narratives influence competitive success in the English Premier League. By combining press coverage, Reddit fan discourse, financial spending, and match performance from 2016–2025, the project quantifies the relationship between hype, money, and results. The findings reveal that narrative attention carries independent predictive power beyond financial resources alone.</p>
-					<ul class="actions special">
-						<li><a href="https://github.com/dshoghanian/elp-NLP-Project" class="button">View Project</a></li>
-					</ul>
-				</article>
-				<article>
-						<header>
-							<h2><a href="https://github.com/dshoghanian/LSTM-Power-Forecasting">Household Electricity Demand Forecasting with LSTM</a></h2>
-						</header>
-						<a href="https://github.com/dshoghanian/LSTM-Power-Forecasting" class="image fit"><img src="images/household-electricity.jpg" alt="" /></a>
-						<p>This project applies a deep learning LSTM model built in PyTorch to forecast daily household electricity consumption. Using multi-year power usage data, I preprocess, normalize, and structure the time series into supervised learning sequences to predict next-day demand. The model is evaluated using RMSE, MAE, and R² to assess predictive accuracy and generalization performance.</p>
-						<ul class="actions special">
-							<li><a href="https://github.com/dshoghanian/LSTM-Power-Forecasting" class="button">View Project</a></li>
-						</ul>
-					</article>
-				<article>
-					<header>
-						<h2><a href="https://github.com/dshoghanian/telco-churn-tabnet">Telco Customer Churn Prediction Using TabNet and Machine Learning Models</a></h2>
-					</header>
-					<a href="https://github.com/dshoghanian/telco-churn-tabnet" class="image fit"><img src="images/TabNet.png" alt="" /></a>
-					<p>In this project, I implemented and benchmarked multiple machine learning models to predict customer churn for a telecom company. The highlight was replicating TabNet, a deep learning architecture from a Google AI research paper designed for interpretable learning on tabular data.</p>
-					<ul class="actions special">
-						<li><a href="https://github.com/dshoghanian/telco-churn-tabnet" class="button">View Project</a></li>
-					</ul>
-				</article>		
-				<article>
-					<header>
-						<h2><a href="https://github.com/dshoghanian/mall-analysis">Analysis of Malls in California</a></h2>
-					</header>
-					<a href="https://github.com/dshoghanian/mall-analysis" class="image fit"><img src="images/Mall.jpg" alt="" /></a>
-					<p>Analyzed sales performance across California malls to uncover key factors driving higher revenue, with a focus on customer demographics and mall characteristics. This report offers actionable insights for mall operators and store managers to optimize marketing strategies and operational decisions, empowering them to boost sales and enhance overall profitability.</p>
-					<ul class="actions special">
-						<li><a href="https://github.com/dshoghanian/mall-analysis" class="button">View Project</a></li>
-					</ul>
-				</article>
-					<article>
-						<header>
-							<h2><a href="https://github.com/dshoghanian/Projects/blob/main/UEFA%20Champions%20League.ipynb">UEFA Champions League Analysis</a></h2>
-						</header> 
-						<a href="https://github.com/dshoghanian/Projects/blob/main/UEFA%20Champions%20League.ipynb" class="image fit"><img src="images/UEFA2.jpg" alt="" /></a>
-						<p>The goal of this project is to conduct an in-depth analysis of the UEFA Champions League (UCL) using historical data from 1955 to 2023. By leveraging match performance and final results data, aiming to uncover patterns, trends, and insights that have shaped the tournament over the decades.</p>
-						<ul class="actions special">
-							<li><a href="https://github.com/dshoghanian/Projects/blob/main/UEFA%20Champions%20League.ipynb" class="button">View Project</a></li>
-						</ul>
-					</article>
-					<article>
-						<header>
-							<h2><a href="https://github.com/dshoghanian/Projects/blob/main/Nvidia%20Financial%20Analysis/Nvidia_Presentation.pdf">Nvidia Financial Analysis</a></h2>
-						</header>
-						<a href="https://github.com/dshoghanian/Projects/blob/main/Nvidia%20Financial%20Analysis/Nvidia_Presentation.pdf" class="image fit"><img src="images/nvidia.jpg" alt="" /></a>
-						<p>This project delivers a comprehensive financial and strategic analysis of Nvidia, highlighting its role as a global technology leader in GPUs, AI, and high-performance computing. The analysis explores Nvidia's history, strategic goals, recent performance, supply chain, market trends, competitive position, and financial forecasts</p>
-						<ul class="actions special">
-							<li><a href="https://github.com/dshoghanian/Projects/blob/main/Nvidia%20Financial%20Analysis/Nvidia_ProForma.xlsx" class="button">View File</a></li>
-							<li><a href="https://github.com/dshoghanian/Projects/blob/main/Nvidia%20Financial%20Analysis/Nvidia_Presentation.pdf" class="button">View Presentation</a></li>
-						</ul>
-					</article>
-					<article>
-						<header>
-							<h2><a href="https://github.com/dshoghanian/Projects/blob/main/OCTA%20Travel%20Forecast.pdf">Orange County Transportation Authority Travel Demand Forecast</a></h2>
-						</header> 
-						<a href="https://github.com/dshoghanian/Projects/blob/main/OCTA%20Travel%20Forecast.pdf" class="image fit"><img src="images/octa.jpg" alt="" /></a>
-						<p>The project analyzed transportation and land use data from the Orange County Transportation Authority (OCTA) to provide insights for improving infrastructure, land use planning, and sustainability. By examining GIS layers, population growth, traffic flow, and bikeway usage, it supported data-driven decisions for future transportation and urban development.</p>
-						<ul class="actions special">
-							<li><a href="https://github.com/dshoghanian/Projects/blob/main/OCTA%20Travel%20Forecast.pdf" class="button">View Project</a></li>
-						</ul>
-					</article>
-				</section>
-				
-			<!-- Footer -->
-			<footer id="footer">
-				<section class="split contact">
-					<section>
-						<h3>Location</h3>
-						<p>Los Angeles, CA</p>
-					</section>
-					<section>
-						<h3>Social</h3>
-						<ul class="icons alt">
-							<li><a href="https://www.linkedin.com/in/dshoghanian/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/dshoghanian" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</section>
-				</section>
-			</footer>
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      ctx.lineWidth = 1;
 
-				<!-- Easter Egg -->
-				<div id="easter-egg">
-					<img src="images/liverpool.jpg" alt="Easter Egg" />
-					<button id="close-easter-egg">Close</button>
-				</div>
+      for (let i = 0; i < COUNT; i++) {
+        const p = particles[i];
+        p.px = p.x; p.py = p.y;
+        const angle = getAngle(p.x, p.y, time);
+        p.x += Math.cos(angle) * p.speed;
+        p.y += Math.sin(angle) * p.speed;
+        p.life++;
 
-				<!-- Copyright -->
-				<div id="copyright">
-					<ul>
-						<li>&copy; Dante Shoghanian</li>
-					</ul>
-				</div>
-			</div>
+        if (p.life > p.maxLife || p.x < 0 || p.x > W || p.y < 0 || p.y > H) {
+          particles[i] = spawn(); continue;
+        }
 
-			<!-- easteregg -->
-			<script>
-				document.addEventListener('keydown', (event) => {
-					const keysPressed = {};
-	
-					document.addEventListener('keydown', (event) => {
-						keysPressed[event.key.toLowerCase()] = true;
-	
-						// Check if Alt + A + S is pressed
-						if (keysPressed['alt'] && keysPressed['a'] && keysPressed['s']) {
-							const easterEgg = document.getElementById('easter-egg');
-							if (easterEgg.style.display === 'none') {
-								easterEgg.style.display = 'block';
-							} else {
-								easterEgg.style.display = 'none';
-							}
-						}
-					});
-	
-					document.addEventListener('keyup', (event) => {
-						keysPressed[event.key.toLowerCase()] = false;
-					});
-				});
-	
-				document.getElementById('close-easter-egg').addEventListener('click', () => {
-					document.getElementById('easter-egg').style.display = 'none';
-				});
-			</script>
-		</body>
-		</html>
+        const alpha = Math.sin((p.life / p.maxLife) * Math.PI) * 0.75;
+        ctx.strokeStyle = `rgba(255,255,255,${alpha.toFixed(2)})`;
+        ctx.beginPath();
+        ctx.moveTo(p.px, p.py);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+      }
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-		
+      time += 0.004;
+      requestAnimationFrame(draw);
+    }
 
-	</body>
+    requestAnimationFrame(function() {
+      resize();
+      particles = Array.from({ length: COUNT }, () => {
+        const p = spawn();
+        p.life = Math.floor(Math.random() * p.maxLife);
+        return p;
+      });
+      window.addEventListener('resize', resize);
+      draw();
+    });
+  })();
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Active nav link
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => navObserver.observe(s));
+
+  // Easter Egg: Alt + A + S
+  const keysDown = {};
+  document.addEventListener('keydown', e => {
+    keysDown[e.key.toLowerCase()] = true;
+    if (e.altKey && keysDown['a'] && keysDown['s']) {
+      document.getElementById('easter-egg').classList.toggle('open');
+    }
+  });
+  document.addEventListener('keyup', e => { delete keysDown[e.key.toLowerCase()]; });
+  document.getElementById('close-easter-egg').addEventListener('click', () => {
+    document.getElementById('easter-egg').classList.remove('open');
+  });
+</script>
+
+</body>
 </html>

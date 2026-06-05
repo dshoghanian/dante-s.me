@@ -1,106 +1,158 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>My Certifications - Dante's Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			iframe {
-				width: 100%;
-				height: 600px;
-				border: 1px solid #ddd;
-				margin-bottom: 20px;
-			}
-			.certificate-container {
-				text-align: center;
-				margin: 20px 0;
-			}
-			.certificate-container h3 {
-				margin-bottom: 10px;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certifications — Dante Shoghanian</title>
+  <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="assets/css/portfolio.css" />
+</head>
+<body>
 
-		<!-- Wrapper -->
-		<div id="wrapper" class="fade-in">
+<!-- ── NAV ────────────────────────────────────────────────── -->
+<nav id="sitenav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">DS</a>
 
-			<!-- Header -->
-			<header id="header">
-				<a href="index.html" class="logo">Dante's Portfolio</a>
-			</header>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#awards">Awards</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="Certifications.html" class="active">Certifications</a></li>
+    </ul>
 
-			<!-- Nav -->
-			<nav id="nav">
-				<ul class="links">
-					<li><a href="index.html">Projects</a></li>
-					<li><a href="Awards.html">Awards</a></li>
-					<li><a href="interests.html">Interests</a></li>
-					<li class="active"><a href="certifications.html">Certifications</a></li>
-					<li><a href="/downloads/Dante_Shoghanian_Resume.pdf" target="_blank">Resume</a></li>
-				</ul>
-				<ul class="icons">
-					<li><a href="https://www.linkedin.com/in/dshoghanian/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://github.com/dshoghanian" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-				</ul>
-			</nav>
+    <div class="nav-actions">
+      <a href="https://www.linkedin.com/in/dshoghanian/" target="_blank" class="nav-icon" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/dshoghanian" target="_blank" class="nav-icon" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="/downloads/Dante_Shoghanian_Resume.pdf" target="_blank" class="btn btn-primary btn-sm nav-resume">Resume</a>
+    </div>
+  </div>
+</nav>
 
-			<!-- Main Content -->
-			<div id="main">
-				<!-- Certifications Section -->
-				<section>
-					<header class="major">
-						<h2>My Certifications</h2>
-					</header>
-					<p>Below is a list of certifications I’ve earned to enhance my skills and knowledge.</p>
+<!-- ── PAGE HEADER ────────────────────────────────────────── -->
+<div class="container page-header">
+  <div class="section-header reveal">
+    <span class="section-index">// Certifications</span>
+    <h2>Credentials</h2>
+  </div>
+  <p class="reveal d1">Professional certifications in data analytics, machine learning, and engineering tools.</p>
+</div>
 
-					<div class="certificate-container">
-						<h3>Google Data Analytics Certificate</h3>
-						<iframe src="certificates/Google_Analytics.pdf" width="100%" height="600"></iframe>
-						<p><a href="certificates/Google_Analytics.pdf" target="_blank">
-					</div>
-					<div class="certificate-container">
-						<h3>Google Data Analytics Certificate</h3>
-						<iframe src="certificates/Tableau_Fundamentals.pdf" width="100%" height="600"></iframe>
-						<p><a href="certificates/Tableau_Fundamentals.pdf" target="_blank">
-					</div>
+<!-- ── CERT GRID ──────────────────────────────────────────── -->
+<div class="container">
+  <div class="cert-grid">
 
-					<div class="certificate-container">
-						<h3>Parallel Programming with Dask in Python</h3>
-						<iframe src="certificates/Dask.pdf" width="100%" height="600"></iframe>
-						<p><a href="certificates/Dask.pdf" target="_blank">
-					</div>
+    <a href="certificates/Google_Analytics.pdf" target="_blank" class="cert-card reveal">
+      <div class="cert-card__top">
+        <span class="cert-card__num">01</span>
+        <i class="fas fa-certificate cert-card__icon"></i>
+      </div>
+      <div class="cert-card__body">
+        <p class="cert-card__issuer">Google / Coursera</p>
+        <h3 class="cert-card__title">Google Data Analytics Certificate</h3>
+        <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+      </div>
+    </a>
 
-					<div class="certificate-container">
-						<h3>Managing Big Data with MySQL</h3>
-						<iframe src="certificates/Managing Big Data with MySQL.pdf" width="100%" height="600"></iframe>
-						<p><a href="certificates/Managing Big Data with MySQL.pdf" target="_blank">
-					</div>
+    <a href="certificates/Tableau_Fundamentals.pdf" target="_blank" class="cert-card reveal d1">
+      <div class="cert-card__top">
+        <span class="cert-card__num">02</span>
+        <i class="fas fa-certificate cert-card__icon"></i>
+      </div>
+      <div class="cert-card__body">
+        <p class="cert-card__issuer">Tableau / Salesforce</p>
+        <h3 class="cert-card__title">Tableau Desktop Fundamentals</h3>
+        <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+      </div>
+    </a>
 
-					<div class="certificate-container">
-						<h3>Data Analysis with R</h3>
-						<iframe src="certificates/Data Analysis with R.pdf" width="100%" height="600"></iframe>
-						<p><a href="certificates/Data Analysis with R.pdf" target="_blank">
-					</div>
+    <a href="certificates/Dask.pdf" target="_blank" class="cert-card reveal d2">
+      <div class="cert-card__top">
+        <span class="cert-card__num">03</span>
+        <i class="fas fa-certificate cert-card__icon"></i>
+      </div>
+      <div class="cert-card__body">
+        <p class="cert-card__issuer">DataCamp</p>
+        <h3 class="cert-card__title">Parallel Programming with Dask in Python</h3>
+        <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+      </div>
+    </a>
 
-					<div class="certificate-container">
-						<h3>Data Manipulation with pandas</h3>
-						<iframe src="certificates/Data Manipulation with pandas.pdf" width="100%" height="600"></iframe>
-						<p><a href="certificates/Data Manipulation with pandas.pdf" target="_blank">
-					</div>
+    <a href="certificates/Managing Big Data with MySQL.pdf" target="_blank" class="cert-card reveal">
+      <div class="cert-card__top">
+        <span class="cert-card__num">04</span>
+        <i class="fas fa-certificate cert-card__icon"></i>
+      </div>
+      <div class="cert-card__body">
+        <p class="cert-card__issuer">Duke University / Coursera</p>
+        <h3 class="cert-card__title">Managing Big Data with MySQL</h3>
+        <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+      </div>
+    </a>
 
-					<div class="certificate-container">
-						<h3>Alteryx</h3>
-						<iframe src="certificates/Ax.pdf" width="100%" height="600"></iframe>
-						<p><a href="certificates/Ax.pdf" target="_blank">
+    <a href="certificates/Data Analysis with R.pdf" target="_blank" class="cert-card reveal d1">
+      <div class="cert-card__top">
+        <span class="cert-card__num">05</span>
+        <i class="fas fa-certificate cert-card__icon"></i>
+      </div>
+      <div class="cert-card__body">
+        <p class="cert-card__issuer">DataCamp</p>
+        <h3 class="cert-card__title">Data Analysis with R</h3>
+        <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+      </div>
+    </a>
 
-					<div id="copyright">
-						<ul>
-							<li>&copy; Dante Shoghanian</li>
-						</ul>
-				</section>
-		<script src="assets/js/main.js"></script>
-	</body>
+    <a href="certificates/Data Manipulation with pandas.pdf" target="_blank" class="cert-card reveal d2">
+      <div class="cert-card__top">
+        <span class="cert-card__num">06</span>
+        <i class="fas fa-certificate cert-card__icon"></i>
+      </div>
+      <div class="cert-card__body">
+        <p class="cert-card__issuer">DataCamp</p>
+        <h3 class="cert-card__title">Data Manipulation with pandas</h3>
+        <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+      </div>
+    </a>
+
+    <a href="certificates/Ax.pdf" target="_blank" class="cert-card reveal">
+      <div class="cert-card__top">
+        <span class="cert-card__num">07</span>
+        <i class="fas fa-certificate cert-card__icon"></i>
+      </div>
+      <div class="cert-card__body">
+        <p class="cert-card__issuer">Alteryx</p>
+        <h3 class="cert-card__title">Alteryx Designer Core</h3>
+        <span class="cert-card__cta">View Certificate <i class="fas fa-arrow-right" style="font-size:0.5rem;"></i></span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer id="sitefooter">
+  <div class="container footer-inner">
+    <p class="footer-copy">&copy; 2026 Dante Shoghanian</p>
+    <nav class="footer-links">
+      <a href="Awards.html">Awards</a>
+      <a href="Certifications.html">Certifications</a>
+      <a href="interests.html">Interests</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
 </html>
