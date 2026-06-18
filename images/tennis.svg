@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1830"/>
+      <stop offset="1" stop-color="#0a0e17"/>
+    </linearGradient>
+    <radialGradient id="ball" cx="0.35" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#cfe0c9"/>
+      <stop offset="0.6" stop-color="#8faf8a"/>
+      <stop offset="1" stop-color="#5e7a59"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Court, drawn in perspective from baseline -->
+  <g stroke="#8faf8a" stroke-width="2" fill="none" opacity="0.85" stroke-linejoin="round">
+    <!-- Outer doubles court -->
+    <polygon points="150,400 650,400 540,90 260,90" fill="rgba(143,175,138,0.06)"/>
+    <!-- Singles sidelines -->
+    <line x1="210" y1="400" x2="295" y2="90"/>
+    <line x1="590" y1="400" x2="505" y2="90"/>
+    <!-- Net -->
+    <line x1="120" y1="245" x2="680" y2="245" stroke-width="2.5"/>
+    <!-- Service line -->
+    <line x1="245" y1="170" x2="555" y2="170"/>
+    <!-- Center service line -->
+    <line x1="400" y1="245" x2="400" y2="170"/>
+    <!-- Center mark -->
+    <line x1="400" y1="400" x2="400" y2="385"/>
+  </g>
+
+  <!-- Net posts -->
+  <g stroke="#64748b" stroke-width="3">
+    <line x1="120" y1="232" x2="120" y2="258"/>
+    <line x1="680" y1="232" x2="680" y2="258"/>
+  </g>
+
+  <!-- Ball with seam -->
+  <g transform="translate(560,300)">
+    <circle r="26" fill="url(#ball)"/>
+    <path d="M -26,-6 C -8,-18 8,-18 26,-6" fill="none" stroke="#0a0e17" stroke-width="2.5" opacity="0.55"/>
+    <path d="M -26,10 C -8,-2 8,-2 26,10" fill="none" stroke="#0a0e17" stroke-width="2.5" opacity="0.55"/>
+  </g>
+</svg>
