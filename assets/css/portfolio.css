@@ -139,6 +139,18 @@ ul  { list-style: none; }
 .nav-icon:hover { color: var(--accent); }
 .nav-resume { font-size: 0.6rem !important; padding: 0.38rem 0.8rem !important; }
 
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.85rem;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.nav-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
 /* ── HERO ───────────────────────────────────────────────── */
 #hero {
   min-height: 100vh;
@@ -1007,7 +1019,24 @@ section, #sitefooter {
 }
 
 @media (max-width: 700px) {
+  .nav-toggle             { display: block; }
   .nav-links              { display: none; }
+  #sitenav.nav-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0 0.75rem;
+  }
+  #sitenav.nav-open .nav-links a {
+    display: block;
+    padding: 0.7rem clamp(1.5rem, 5vw, 4rem);
+    font-size: 0.68rem;
+  }
   .hero-ascii             { font-size: clamp(0.42rem, 3.5vw, 0.7rem); }
   .hero-surname           { font-size: clamp(2.5rem, 12vw, 5rem); }
   .hero-scroll-hint       { display: none; }
