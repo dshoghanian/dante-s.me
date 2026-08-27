@@ -13,7 +13,7 @@
   --accent:     #8faf8a;
   --accent-dim: rgba(143, 175, 138, 0.08);
   --text:       #e2e8f0;
-  --muted:      #64748b;
+  --muted:      #94a3b8;
   --sans:       'Josefin Sans', sans-serif;
   --mono:       'JetBrains Mono', 'Courier New', monospace;
   --nav-h:      56px;
@@ -244,7 +244,7 @@ section, #sitefooter {
 
 .hero-tagline {
   font-family: var(--mono);
-  font-size: clamp(0.63rem, 1.2vw, 0.8rem);
+  font-size: clamp(0.72rem, 1.3vw, 0.85rem);
   color: var(--muted);
   letter-spacing: 0.07em;
   margin-bottom: 0.6rem;
@@ -253,7 +253,7 @@ section, #sitefooter {
 
 .hero-status {
   font-family: var(--mono);
-  font-size: 0.67rem;
+  font-size: 0.72rem;
   color: var(--accent);
   letter-spacing: 0.12em;
   margin-bottom: 2.5rem;
@@ -388,7 +388,7 @@ section, #sitefooter {
 }
 .project-featured__desc {
   font-family: var(--mono);
-  font-size: 0.69rem;
+  font-size: 0.78rem;
   color: var(--muted);
   line-height: 1.95;
   margin-bottom: 1.5rem;
@@ -468,7 +468,7 @@ section, #sitefooter {
 
 .project-card__desc {
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--muted);
   line-height: 1.8;
   margin-bottom: 1rem;
@@ -540,7 +540,7 @@ section, #sitefooter {
 }
 .award-card__desc {
   font-family: var(--mono);
-  font-size: 0.65rem;
+  font-size: 0.74rem;
   color: var(--muted);
   line-height: 1.85;
   margin-bottom: 1.25rem;
@@ -598,7 +598,7 @@ section, #sitefooter {
 
 .exp-item__bullets li {
   font-family: var(--mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: var(--muted);
   line-height: 1.85;
   position: relative;
@@ -623,7 +623,7 @@ section, #sitefooter {
 
 .about-bio p {
   font-family: var(--mono);
-  font-size: 0.73rem;
+  font-size: 0.8rem;
   color: var(--muted);
   line-height: 2;
   margin-bottom: 1rem;
@@ -643,7 +643,7 @@ section, #sitefooter {
 }
 .about-fact__value {
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.74rem;
   color: var(--text);
   line-height: 1.6;
 }
@@ -670,7 +670,7 @@ section, #sitefooter {
 .skill-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .skill-chips span {
   font-family: var(--mono);
-  font-size: 0.58rem;
+  font-size: 0.63rem;
   letter-spacing: 0.06em;
   color: var(--text);
   border: 1px solid var(--border);
@@ -697,7 +697,7 @@ section, #sitefooter {
 
 .contact-sub {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   color: var(--muted);
   margin-bottom: 3rem;
   letter-spacing: 0.06em;
@@ -913,7 +913,7 @@ section, #sitefooter {
 }
 .case-stat__label {
   font-family: var(--mono);
-  font-size: 0.54rem;
+  font-size: 0.6rem;
   color: var(--muted);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -932,7 +932,7 @@ section, #sitefooter {
 }
 .case-section p {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   color: var(--muted);
   line-height: 2;
   margin-bottom: 0.9rem;
@@ -941,7 +941,7 @@ section, #sitefooter {
 .case-section strong { color: var(--text); font-weight: 700; }
 .case-section ul li {
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   color: var(--muted);
   line-height: 1.9;
   position: relative;
@@ -962,7 +962,7 @@ section, #sitefooter {
   border: 1px solid var(--border);
   padding: 0.55rem 0.8rem;
   font-family: var(--mono);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   text-align: left;
   white-space: nowrap;
 }
