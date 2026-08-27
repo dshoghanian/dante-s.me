@@ -977,6 +977,114 @@ section, #sitefooter {
 
 .case-cta { display: flex; gap: 1rem; margin-top: 3rem; flex-wrap: wrap; }
 
+/* ── TENNIS PREDICTOR APP ───────────────────────────────── */
+.tp-app {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  margin-top: 2.5rem;
+}
+
+.tp-seg { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.tp-seg button {
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.55rem 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.tp-seg button:hover { border-color: var(--accent); color: var(--accent); }
+.tp-seg button.active { background: var(--accent); border-color: var(--accent); color: #000; }
+
+.tp-players {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.25rem;
+  align-items: end;
+  margin-bottom: 1.75rem;
+}
+.tp-player label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.tp-player select {
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.65rem 0.75rem;
+  appearance: auto;
+}
+.tp-player select:focus { outline: none; border-color: var(--accent); }
+.tp-elo {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  min-height: 1em;
+}
+.tp-vs {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  padding-bottom: 1.7rem;
+}
+
+.tp-result { margin-top: 0.5rem; }
+.tp-names {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+  gap: 1rem;
+}
+.tp-bar {
+  height: 14px;
+  background: #253248;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.tp-bar__a {
+  height: 100%;
+  background: var(--accent);
+  width: 50%;
+  transition: width 0.45s ease;
+}
+.tp-probs {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 0.6rem;
+}
+.tp-probs span:first-child { color: var(--accent); }
+.tp-probs span:last-child  { color: var(--text); }
+
+@media (max-width: 700px) {
+  .tp-players { grid-template-columns: 1fr; }
+  .tp-vs { display: none; }
+}
+
 /* ── Easter Egg ─────────────────────────────────────────── */
 #easter-egg {
   display: none;

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tennis Match Predictor — Live Demo</title>
+  <meta name="description" content="Pick any two ATP or WTA players and a surface — the trained XGBoost model runs in your browser and predicts the winner." />
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="../images/favicon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tennis Match Predictor — Live Demo" />
+  <meta property="og:image" content="https://dante-s.me/images/og-banner.png" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-24RHNC1M4W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-24RHNC1M4W');
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────────── -->
+<nav id="sitenav">
+  <div class="container nav-inner">
+    <a href="../index.html#hero" class="nav-logo">DS</a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html#work" class="active">Work</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#awards">Awards</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../Certifications.html">Certifications</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://www.linkedin.com/in/dshoghanian/" target="_blank" class="nav-icon" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/dshoghanian" target="_blank" class="nav-icon" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="../downloads/Dante_Shoghanian_Resume.pdf" target="_blank" class="btn btn-primary btn-sm nav-resume">Resume</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── APP ────────────────────────────────────────────────── -->
+<main class="case-main">
+  <div class="container">
+
+    <a href="tennis-match-predictor.html" class="case-back">&larr; Back to Case Study</a>
+
+    <p class="case-badge">Live Demo &mdash; runs in your browser</p>
+    <h1 class="case-title">Tennis Match Predictor</h1>
+    <p class="case-lede">Pick two players and a surface. The trained XGBoost model does the rest.</p>
+
+    <div class="tp-app">
+
+      <div class="tp-seg" id="tour-seg" role="tablist" aria-label="Tour">
+        <button data-tour="atp" class="active">ATP &mdash; Men</button>
+        <button data-tour="wta">WTA &mdash; Women</button>
+      </div>
+
+      <div class="tp-players">
+        <div class="tp-player">
+          <label for="player-a">Player A</label>
+          <select id="player-a"></select>
+          <p class="tp-elo" id="elo-a"></p>
+        </div>
+        <div class="tp-vs">VS</div>
+        <div class="tp-player">
+          <label for="player-b">Player B</label>
+          <select id="player-b"></select>
+          <p class="tp-elo" id="elo-b"></p>
+        </div>
+      </div>
+
+      <div class="tp-seg" id="surface-seg" role="tablist" aria-label="Surface">
+        <button data-surface="Hard" class="active">Hard</button>
+        <button data-surface="Clay">Clay</button>
+        <button data-surface="Grass">Grass</button>
+      </div>
+
+      <div class="tp-result">
+        <div class="tp-names">
+          <span id="name-a"></span>
+          <span id="name-b"></span>
+        </div>
+        <div class="tp-bar">
+          <div class="tp-bar__a" id="bar-a"></div>
+        </div>
+        <div class="tp-probs">
+          <span id="prob-a"></span>
+          <span id="prob-b"></span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="case-section" style="margin-top:3rem;">
+      <h2>// How This Works</h2>
+      <p>
+        This page runs the <strong>actual trained XGBoost model</strong> from the
+        <a href="https://github.com/dshoghanian/tennis-match-predictor" target="_blank" style="color:var(--accent);">tennis-match-predictor</a>
+        repo &mdash; 400 gradient-boosted trees per tour, exported to JSON and scored in
+        JavaScript, no server involved. Ratings come from replaying <strong>every tour-level
+        match since 1991</strong> (Jeff Sackmann's open data, through mid-2026) through the repo's
+        chronological Elo engine, keeping separate ratings per surface.
+      </p>
+      <p>
+        Fine print: like the repo's own live predictor, hypothetical matchups are scored from the
+        players' current overall and surface Elo (recent-form and head-to-head features apply only
+        to historical matches). Players shown are those active since 2024 with 30+ tour-level
+        matches. And tennis is genuinely hard to predict &mdash; the model's honest ceiling is about
+        65% accuracy, so treat a 55/45 call as the coin-flip it nearly is.
+      </p>
+    </div>
+
+    <div class="case-cta">
+      <a href="tennis-match-predictor.html" class="btn btn-ghost">Read the Case Study</a>
+      <a href="https://github.com/dshoghanian/tennis-match-predictor" target="_blank" class="btn btn-ghost">View on GitHub</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer id="sitefooter">
+  <div class="container footer-inner">
+    <p class="footer-copy">&copy; 2026 Dante Shoghanian</p>
+  </div>
+</footer>
+
+<script src="tennis-data/tennis_atp.js"></script>
+<script src="tennis-data/tennis_wta.js"></script>
+<script>
+(function () {
+  var DATA = { atp: window.TENNIS_ATP, wta: window.TENNIS_WTA };
+  var state = { tour: 'atp', surface: 'Hard', a: 0, b: 1 };
+
+  function players() { return DATA[state.tour].players; }
+
+  function scoreTree(node, eloDiff, seDiff) {
+    while (!('v' in node)) {
+      var x = node.f === 'elo_diff' ? eloDiff : seDiff;
+      node = x < node.t ? node.l : node.r;
+    }
+    return node.v;
+  }
+
+  function predict(pa, pb, surface) {
+    var d = DATA[state.tour];
+    var eloDiff = pa.e - pb.e;
+    var seDiff = pa.s[surface] - pb.s[surface];
+    var sum = d.bias;
+    for (var i = 0; i < d.trees.length; i++) sum += scoreTree(d.trees[i], eloDiff, seDiff);
+    return 1 / (1 + Math.exp(-sum));
+  }
+
+  var selA = document.getElementById('player-a');
+  var selB = document.getElementById('player-b');
+
+  function fillSelects() {
+    var opts = players().map(function (p, i) {
+      return '<option value="' + i + '">' + p.n + '</option>';
+    }).join('');
+    selA.innerHTML = opts;
+    selB.innerHTML = opts;
+    selA.value = state.a;
+    selB.value = state.b;
+  }
+
+  function fmtElo(p) {
+    return 'Elo ' + Math.round(p.e) + ' · ' + state.surface + ' ' + Math.round(p.s[state.surface]);
+  }
+
+  function render() {
+    var pa = players()[state.a], pb = players()[state.b];
+    document.getElementById('elo-a').textContent = fmtElo(pa);
+    document.getElementById('elo-b').textContent = fmtElo(pb);
+    document.getElementById('name-a').textContent = pa.n;
+    document.getElementById('name-b').textContent = pb.n;
+    if (state.a === state.b) {
+      document.getElementById('bar-a').style.width = '50%';
+      document.getElementById('prob-a').textContent = '50.0%';
+      document.getElementById('prob-b').textContent = '50.0%';
+      return;
+    }
+    var p = predict(pa, pb, state.surface);
+    document.getElementById('bar-a').style.width = (p * 100).toFixed(1) + '%';
+    document.getElementById('prob-a').textContent = (p * 100).toFixed(1) + '%';
+    document.getElementById('prob-b').textContent = ((1 - p) * 100).toFixed(1) + '%';
+  }
+
+  selA.addEventListener('change', function () { state.a = +selA.value; render(); });
+  selB.addEventListener('change', function () { state.b = +selB.value; render(); });
+
+  document.getElementById('tour-seg').addEventListener('click', function (e) {
+    var btn = e.target.closest('button'); if (!btn) return;
+    state.tour = btn.dataset.tour;
+    state.a = 0; state.b = 1;
+    this.querySelectorAll('button').forEach(function (b) { b.classList.toggle('active', b === btn); });
+    fillSelects(); render();
+  });
+
+  document.getElementById('surface-seg').addEventListener('click', function (e) {
+    var btn = e.target.closest('button'); if (!btn) return;
+    state.surface = btn.dataset.surface;
+    this.querySelectorAll('button').forEach(function (b) { b.classList.toggle('active', b === btn); });
+    render();
+  });
+
+  fillSelects();
+  render();
+})();
+</script>
+<script src="../assets/js/nav.js"></script>
+
+</body>
+</html>
