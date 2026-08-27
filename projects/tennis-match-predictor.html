@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATP &amp; WTA Tennis Match Predictor — Dante Shoghanian</title>
+  <meta name="description" content="Case study: predicting professional tennis match winners with surface-specific Elo and XGBoost, trained on three decades of ATP and WTA data." />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-24RHNC1M4W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-24RHNC1M4W');
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────────── -->
+<nav id="sitenav">
+  <div class="container nav-inner">
+    <a href="../index.html#hero" class="nav-logo">DS</a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html#work" class="active">Work</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#awards">Awards</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../Certifications.html">Certifications</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://www.linkedin.com/in/dshoghanian/" target="_blank" class="nav-icon" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/dshoghanian" target="_blank" class="nav-icon" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="../downloads/Dante_Shoghanian_Resume.pdf" target="_blank" class="btn btn-primary btn-sm nav-resume">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── CASE STUDY ─────────────────────────────────────────── -->
+<main class="case-main">
+  <div class="container">
+
+    <a href="../index.html#work" class="case-back">&larr; Back to Work</a>
+
+    <p class="case-badge">Case Study &mdash; Machine Learning · Sports Analytics</p>
+    <h1 class="case-title">ATP &amp; WTA Tennis Match Predictor</h1>
+    <p class="case-lede">How well can you predict a tennis match before the first serve?</p>
+
+    <div class="proj-tags case-tags">
+      <span>XGBoost</span><span>Elo</span><span>pandas</span><span>Python</span>
+    </div>
+
+    <div class="case-stats">
+      <div class="case-stat">
+        <p class="case-stat__num">0.716</p>
+        <p class="case-stat__label">AUC, ATP held-out test (2022+)</p>
+      </div>
+      <div class="case-stat">
+        <p class="case-stat__num">0.713</p>
+        <p class="case-stat__label">AUC, WTA held-out test (2022+)</p>
+      </div>
+      <div class="case-stat">
+        <p class="case-stat__num">30+ yrs</p>
+        <p class="case-stat__label">Tour-level match data, 1991&ndash;present</p>
+      </div>
+      <div class="case-stat">
+        <p class="case-stat__num">2</p>
+        <p class="case-stat__label">Baselines beaten: ranking &amp; Elo</p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>// The Question</h2>
+      <p>
+        Pre-match tennis prediction has a well-known ceiling &mdash; roughly 67&ndash;70% accuracy even for the
+        best published models, because upsets are genuinely common. The goal here wasn't to beat physics:
+        it was to <strong>build a leakage-free pipeline that reliably beats the standard baselines</strong>
+        (pick the higher-ranked player; pick the higher-Elo player) on both the ATP and WTA tours.
+      </p>
+    </div>
+
+    <div class="case-section">
+      <h2>// The Data</h2>
+      <p>
+        Jeff Sackmann's open ATP and WTA match datasets, <strong>1991 to present</strong>, restricted to
+        tour-level main-draw singles. Models train chronologically with a held-out test set of all matches
+        from <strong>2022 onward</strong> &mdash; the models are always predicting matches they have never seen,
+        played after everything they trained on.
+      </p>
+    </div>
+
+    <div class="case-section">
+      <h2>// The Approach</h2>
+      <ul>
+        <li>A chronological <strong>Elo engine</strong> maintaining overall and surface-specific (hard/clay/grass) ratings per player</li>
+        <li><strong>Leakage-safe features</strong>: Elo snapshots are taken <em>before</em> each match updates the ratings; recent form, head-to-head, and rest-day features are built symmetrically so the model can't learn which column the winner is in</li>
+        <li>Separate <strong>XGBoost</strong> models per tour, evaluated against higher-rank and Elo baselines</li>
+        <li>Unit tests including explicit <strong>leakage guards</strong>, and an on-demand matchup predictor with fuzzy name matching that refuses to guess about players outside the dataset</li>
+      </ul>
+    </div>
+
+    <div class="case-section">
+      <h2>// Results</h2>
+      <p>All numbers on the held-out 2022+ test set:</p>
+      <div class="case-table-wrap">
+        <table class="case-table">
+          <thead>
+            <tr><th>Tour</th><th>Higher-rank acc.</th><th>Elo acc.</th><th>XGBoost acc.</th><th>XGBoost AUC</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ATP</td><td>0.639</td><td>0.641</td><td><strong>0.653</strong></td><td><strong>0.716</strong></td></tr>
+            <tr><td>WTA</td><td>0.625</td><td>0.650</td><td><strong>0.655</strong></td><td><strong>0.713</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        XGBoost beats both baselines on both tours. A ~0.65 accuracy is squarely in the expected range for
+        pre-match tennis prediction &mdash; the value of the project is less the headline number and more the
+        discipline behind it: <strong>time-ordered splits that are never shuffled, pre-update rating snapshots,
+        and tested leakage guards</strong>, so the measured edge is real rather than an artifact.
+      </p>
+    </div>
+
+    <div class="case-cta">
+      <a href="https://github.com/dshoghanian/tennis-match-predictor" target="_blank" class="btn btn-primary">View on GitHub</a>
+      <a href="../index.html#work" class="btn btn-ghost">More Projects</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer id="sitefooter">
+  <div class="container footer-inner">
+    <p class="footer-copy">&copy; 2026 Dante Shoghanian</p>
+  </div>
+</footer>
+
+</body>
+</html>

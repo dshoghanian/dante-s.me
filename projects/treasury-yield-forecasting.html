@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Treasury Yield Regime Forecasting — Dante Shoghanian</title>
+  <meta name="description" content="Case study: regime-aware deep learning models forecasting the 10-Year U.S. Treasury yield from a decade of FRED macro and Fed policy data." />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-24RHNC1M4W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-24RHNC1M4W');
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────────── -->
+<nav id="sitenav">
+  <div class="container nav-inner">
+    <a href="../index.html#hero" class="nav-logo">DS</a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html#work" class="active">Work</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#awards">Awards</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../Certifications.html">Certifications</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://www.linkedin.com/in/dshoghanian/" target="_blank" class="nav-icon" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/dshoghanian" target="_blank" class="nav-icon" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="../downloads/Dante_Shoghanian_Resume.pdf" target="_blank" class="btn btn-primary btn-sm nav-resume">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── CASE STUDY ─────────────────────────────────────────── -->
+<main class="case-main">
+  <div class="container">
+
+    <a href="../index.html#work" class="case-back">&larr; Back to Work</a>
+
+    <p class="case-badge">Case Study &mdash; Deep Learning · Finance</p>
+    <h1 class="case-title">Treasury Yield Regime Forecasting</h1>
+    <p class="case-lede">Does knowing what the Fed is doing make yield forecasts better?</p>
+
+    <div class="proj-tags case-tags">
+      <span>PyTorch</span><span>LSTM</span><span>Transformer</span><span>CNN</span><span>FRED</span>
+    </div>
+
+    <div class="case-stats">
+      <div class="case-stat">
+        <p class="case-stat__num">0.91</p>
+        <p class="case-stat__label">R&sup2;, domain-informed hybrid model</p>
+      </div>
+      <div class="case-stat">
+        <p class="case-stat__num">0.88</p>
+        <p class="case-stat__label">R&sup2;, enhanced LSTM</p>
+      </div>
+      <div class="case-stat">
+        <p class="case-stat__num">4</p>
+        <p class="case-stat__label">Architectures compared: FNN, CNN, LSTM, Transformer</p>
+      </div>
+      <div class="case-stat">
+        <p class="case-stat__num">10 yrs</p>
+        <p class="case-stat__label">Daily FRED macro &amp; market data</p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>// The Question</h2>
+      <p>
+        The 10-Year U.S. Treasury yield anchors mortgage rates, corporate borrowing costs, and equity
+        valuations. Most ML forecasting treats it as just another time series. This project asks:
+        <strong>do deep learning models forecast the 10Y yield better when they explicitly know what
+        monetary-policy regime the Fed is in?</strong>
+      </p>
+    </div>
+
+    <div class="case-section">
+      <h2>// The Data</h2>
+      <p>
+        A decade of daily series from <strong>FRED</strong> (Federal Reserve Economic Data). Engineered
+        features include yield-curve spreads (10Y&ndash;2Y, 10Y&ndash;3M), moving averages, momentum, rolling
+        20-day volatility, and lags &mdash; plus <strong>regime labels</strong> classifying each day as easing,
+        stable, or tightening based on effective-Fed-funds-rate changes (&plusmn;5 bps over 60 days).
+      </p>
+    </div>
+
+    <div class="case-section">
+      <h2>// The Approach</h2>
+      <ul>
+        <li>Four architectures in PyTorch: a feed-forward network, a temporal CNN with parallel 1D kernels (sizes 2/3/5), a bidirectional LSTM, and a Transformer encoder</li>
+        <li>Strictly <strong>chronological train/validation/test splits</strong> (70/15/15) with standardization fit on the training window only &mdash; no lookahead</li>
+        <li>A <strong>domain-informed hybrid model</strong> combining the neural forecasts with monetary-policy structure</li>
+        <li><strong>Shock simulations</strong>: additive Fed-funds and CPI shocks propagated through the models to test economic sensitivity</li>
+      </ul>
+    </div>
+
+    <div class="case-section">
+      <h2>// Results</h2>
+      <p>
+        The enhanced LSTM reaches <strong>R&sup2; &asymp; 0.877</strong> out-of-sample, and the domain-informed
+        hybrid pushes that to <strong>R&sup2; &asymp; 0.913</strong>, outperforming every pure deep learning
+        baseline. Regime-awareness measurably improves robustness across easing, stable, and tightening
+        environments. The shock simulations found the 10Y yield <strong>more sensitive to CPI surprises than
+        to equal-sized Fed-funds shocks</strong> &mdash; consistent with the market pricing inflation expectations
+        over policy mechanics.
+      </p>
+    </div>
+
+    <div class="case-section">
+      <h2>// The Honest Caveat</h2>
+      <p>
+        High R&sup2; does not mean the models can trade. <strong>Directional accuracy peaked near ~35%</strong>
+        &mdash; the models track the level of yields well while remaining poor at calling tomorrow's direction.
+        That gap between level accuracy and directional signal is itself one of the project's core findings,
+        and a Bayesian LSTM variant was added to provide well-calibrated uncertainty intervals rather than
+        overconfident point forecasts.
+      </p>
+    </div>
+
+    <div class="case-cta">
+      <a href="https://github.com/dshoghanian/treasury-yield-regime-forecasting" target="_blank" class="btn btn-primary">View on GitHub</a>
+      <a href="../index.html#work" class="btn btn-ghost">More Projects</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer id="sitefooter">
+  <div class="container footer-inner">
+    <p class="footer-copy">&copy; 2026 Dante Shoghanian</p>
+  </div>
+</footer>
+
+</body>
+</html>

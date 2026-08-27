@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthcare Price Transparency — Dante Shoghanian</title>
+  <meta name="description" content="Case study: an end-to-end ML pipeline on ~300M U.S. hospital price records surfacing the hidden drivers of pricing variability." />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-24RHNC1M4W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-24RHNC1M4W');
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="../assets/css/portfolio.css" />
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────────── -->
+<nav id="sitenav">
+  <div class="container nav-inner">
+    <a href="../index.html#hero" class="nav-logo">DS</a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html#work" class="active">Work</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#awards">Awards</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../Certifications.html">Certifications</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://www.linkedin.com/in/dshoghanian/" target="_blank" class="nav-icon" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/dshoghanian" target="_blank" class="nav-icon" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="../downloads/Dante_Shoghanian_Resume.pdf" target="_blank" class="btn btn-primary btn-sm nav-resume">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── CASE STUDY ─────────────────────────────────────────── -->
+<main class="case-main">
+  <div class="container">
+
+    <a href="../index.html#work" class="case-back">&larr; Back to Work</a>
+
+    <p class="case-badge">Case Study &mdash; Machine Learning · Healthcare</p>
+    <h1 class="case-title">Healthcare Price Transparency</h1>
+    <p class="case-lede">Why does the same surgery cost 10&times; more across the street?</p>
+
+    <div class="proj-tags case-tags">
+      <span>Python</span><span>Dask</span><span>scikit-learn</span><span>HDBSCAN</span><span>MLxtend</span><span>pandas</span>
+    </div>
+
+    <div class="case-stats">
+      <div class="case-stat">
+        <p class="case-stat__num">~300M</p>
+        <p class="case-stat__label">Raw price records (27.4 GB)</p>
+      </div>
+      <div class="case-stat">
+        <p class="case-stat__num">0.87</p>
+        <p class="case-stat__label">Na&iuml;ve Bayes accuracy vs. ~0.55 baseline</p>
+      </div>
+      <div class="case-stat">
+        <p class="case-stat__num">0.96</p>
+        <p class="case-stat__label">ROC-AUC, pricing-tier classification</p>
+      </div>
+      <div class="case-stat">
+        <p class="case-stat__num">4</p>
+        <p class="case-stat__label">Hospital market segments identified</p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <h2>// The Question</h2>
+      <p>
+        U.S. hospital pricing is famously opaque: the same procedure can be billed at wildly different
+        rates depending on the hospital, the payer, and the ZIP code. Federal transparency rules forced
+        hospitals to publish their prices &mdash; producing a mountain of messy data that few people have
+        actually analyzed. This project asks: <strong>what actually drives hospital price variability, and
+        can we segment the market in a way that's useful for pricing strategy and payer negotiations?</strong>
+      </p>
+    </div>
+
+    <div class="case-section">
+      <h2>// The Data</h2>
+      <p>
+        The Kaggle <strong>Transparency in Hospital Prices</strong> dataset: roughly <strong>300 million
+        price records (27.4 GB)</strong> plus metadata on 1,800+ hospitals. Too large for pandas in memory,
+        so the pipeline starts with <strong>Dask</strong> &mdash; converting CSV to Parquet across 40 partitions
+        before any modeling. After cleaning and feature engineering, the modeling matrix covers
+        <strong>227,708 records across 12,255 columns</strong>, spanning 1,562 hospitals in 1,085 cities
+        and 44 states.
+      </p>
+    </div>
+
+    <div class="case-section">
+      <h2>// The Approach</h2>
+      <ul>
+        <li><strong>Classification</strong> &mdash; Bernoulli and Gaussian Na&iuml;ve Bayes, a depth-5 decision tree, and class-balanced linear/RBF SVMs predicting hospital pricing tiers</li>
+        <li><strong>Clustering</strong> &mdash; K-Means (k=4) with PCA, HDBSCAN density clustering, and agglomerative clustering with dendrogram analysis to map market structure</li>
+        <li><strong>Association rules</strong> &mdash; Apriori mining (MLxtend) with bootstrap resampling and cross-validation stability filtering, so only patterns that survive resampling are reported</li>
+      </ul>
+    </div>
+
+    <div class="case-section">
+      <h2>// Results</h2>
+      <p>
+        Bernoulli Na&iuml;ve Bayes classifies pricing tiers at <strong>0.869 accuracy and 0.957 ROC-AUC</strong>
+        against a ~0.554 majority-class baseline. The decision tree is close behind (ROC-AUC 0.867,
+        minority-class F1 0.762, 5-fold CV ROC-AUC 0.863 &plusmn; 0.009), and the RBF SVM reaches ~0.778
+        accuracy. K-Means resolves <strong>four coherent market segments</strong> (silhouette 0.451): value-oriented
+        small facilities, two premium standard tiers, and large enterprise systems. Of 156 association rules
+        found via cross-validation, <strong>72 (46.2%) were stable in every fold</strong>.
+      </p>
+      <ul>
+        <li>No single feature dominates price &mdash; procedure code, payer, geography, and facility size each contribute weak signals, which is exactly why multi-variable models are needed</li>
+        <li>Median outpatient price ~$550 vs. ~$228 inpatient; implantable devices top the price range (code C1776, median ~$2,095)</li>
+        <li>Location-anchored pricing patterns concentrate in Kentucky (Louisville, Lexington, Paducah)</li>
+      </ul>
+    </div>
+
+    <div class="case-section">
+      <h2>// A Note on Honesty</h2>
+      <p>
+        An earlier version of this pipeline reported 0.927 accuracy. Auditing the code revealed a silent
+        chi-squared feature-selection fallback that inflated the number. The corrected figure &mdash;
+        <strong>0.869</strong> &mdash; is the one reported, and the bug is documented in the repo. Knowing what
+        your model is actually doing matters more than a prettier headline metric.
+      </p>
+    </div>
+
+    <div class="case-cta">
+      <a href="https://github.com/dshoghanian/hospital-price-transparency" target="_blank" class="btn btn-primary">View on GitHub</a>
+      <a href="../index.html#work" class="btn btn-ghost">More Projects</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer id="sitefooter">
+  <div class="container footer-inner">
+    <p class="footer-copy">&copy; 2026 Dante Shoghanian</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -26,6 +26,7 @@
 
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#awards">Awards</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -86,27 +87,30 @@
         <h3 class="project-featured__title">Healthcare Price Transparency</h3>
         <p class="project-featured__hook">Why does the same surgery cost 10&times; more across the street?</p>
         <p class="project-featured__desc">
-          Built an ML pipeline to surface the hidden drivers behind U.S. hospital pricing variability.
-          Integrated hospital and procedure-level datasets across regions, insurance types, and patient
-          demographics. Models (Naïve Bayes, SVM, HDBSCAN, Association Rules) identify pricing clusters
-          and outliers — turning opaque billing data into actionable policy insights.
+          Built an end-to-end ML pipeline on <strong>~300M hospital price records (27&nbsp;GB)</strong> spanning
+          1,562 hospitals across 44 states. Dask-based cleaning distills the raw data into a 227K-record
+          modeling matrix; Naïve Bayes classifies pricing tiers at <strong>0.87 accuracy (ROC-AUC 0.96)</strong>,
+          with HDBSCAN clustering and association-rule mining surfacing four distinct hospital market segments.
         </p>
         <div class="proj-tags">
           <span>Python</span><span>scikit-learn</span><span>HDBSCAN</span><span>MLxtend</span><span>Dask</span><span>pandas</span>
         </div>
-        <a href="https://github.com/dshoghanian/hospital-price-transparency" target="_blank" class="btn btn-primary">View Project</a>
+        <div class="hero-ctas">
+          <a href="projects/healthcare-price-transparency.html" class="btn btn-primary">Read Case Study</a>
+          <a href="https://github.com/dshoghanian/hospital-price-transparency" target="_blank" class="btn btn-ghost">GitHub</a>
+        </div>
       </div>
     </div>
 
     <!-- Project Grid -->
     <div class="project-grid reveal">
 
-      <a href="https://github.com/dshoghanian/treasury-yield-regime-forecasting" target="_blank" class="project-card">
+      <a href="projects/treasury-yield-forecasting.html" class="project-card">
         <div class="project-card__img-wrap"><img src="images/fred_t.jpg" alt="Treasury Yield Forecasting" /></div>
         <div class="project-card__body">
           <p class="project-card__num">01</p>
           <h3 class="project-card__title">Treasury Yield Regime Forecasting</h3>
-          <p class="project-card__desc">Regime-aware neural networks (FNN, CNN, LSTM, Transformer) forecasting the 10-Year U.S. Treasury yield using macroeconomic, market, and Fed policy data across a decade. Includes shock simulations and feature importance analysis.</p>
+          <p class="project-card__desc">Regime-aware neural networks (FNN, CNN, LSTM, Transformer) forecasting the 10-Year U.S. Treasury yield from a decade of FRED macro, market, and Fed policy data. A domain-informed hybrid model reaches R² ≈ 0.91 out-of-sample, with Fed-funds and CPI shock simulations.</p>
           <div class="project-card__footer">
             <span class="project-card__stack">PyTorch · LSTM · Transformer</span>
             <span class="project-card__arrow">→</span>
@@ -114,12 +118,12 @@
         </div>
       </a>
 
-      <a href="https://github.com/dshoghanian/tennis-match-predictor" target="_blank" class="project-card">
+      <a href="projects/tennis-match-predictor.html" class="project-card">
         <div class="project-card__img-wrap"><img src="images/tennis.svg" alt="ATP & WTA Tennis Match Predictor" /></div>
         <div class="project-card__body">
           <p class="project-card__num">02</p>
           <h3 class="project-card__title">ATP &amp; WTA Tennis Match Predictor</h3>
-          <p class="project-card__desc">Predicts pro singles winners on the ATP and WTA tours using overall and surface-specific Elo plus XGBoost, trained on three decades of match data. Leakage-safe time-split features beat rank and Elo baselines (AUC ~0.72), with an on-demand matchup predictor.</p>
+          <p class="project-card__desc">Predicts pro singles winners on the ATP and WTA tours using overall and surface-specific Elo plus XGBoost, trained on match data from 1991 to the present. Leakage-safe time-split features beat rank and Elo baselines on 2022+ held-out matches (AUC 0.716 ATP / 0.713 WTA), with an on-demand matchup predictor.</p>
           <div class="project-card__footer">
             <span class="project-card__stack">XGBoost · Elo · pandas</span>
             <span class="project-card__arrow">→</span>
@@ -158,7 +162,7 @@
         <div class="project-card__body">
           <p class="project-card__num">05</p>
           <h3 class="project-card__title">Telco Churn — TabNet</h3>
-          <p class="project-card__desc">End-to-end replication of TabNet (Google AI) benchmarked against XGBoost and sklearn on telecom churn prediction. Highlights interpretable attention mechanisms on tabular data.</p>
+          <p class="project-card__desc">End-to-end churn analytics on 7,043 IBM Telco customers using TabNet's attentive interpretability, benchmarked against logistic regression, random forest, and XGBoost. Surfaces high-risk segments (42.7% month-to-month churn vs. 2.8% two-year) and frames outputs as ROI-aware retention targeting.</p>
           <div class="project-card__footer">
             <span class="project-card__stack">TabNet · XGBoost · scikit-learn</span>
             <span class="project-card__arrow">→</span>
@@ -171,9 +175,9 @@
         <div class="project-card__body">
           <p class="project-card__num">06</p>
           <h3 class="project-card__title">California Mall Sales Analysis</h3>
-          <p class="project-card__desc">Regression and spatial analysis of California mall sales performance, identifying demographic and location drivers to help operators optimize marketing strategy and profitability.</p>
+          <p class="project-card__desc">Exploratory analysis of 99K+ sales transactions across 10 malls (2021–2023), profiling customer segments and mall characteristics to identify drivers of sales performance and inform marketing strategy.</p>
           <div class="project-card__footer">
-            <span class="project-card__stack">Python · Regression · GIS</span>
+            <span class="project-card__stack">pandas · seaborn · EDA</span>
             <span class="project-card__arrow">→</span>
           </div>
         </div>
@@ -222,11 +226,90 @@
   </div>
 </section>
 
+<!-- ── EXPERIENCE ─────────────────────────────────────────── -->
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-index">// 02</span>
+      <h2>Experience</h2>
+    </div>
+
+    <div class="exp-timeline reveal">
+
+      <div class="exp-item">
+        <div class="exp-item__head">
+          <h3 class="exp-item__role">Data Lead, MSBA Capstone</h3>
+          <span class="exp-item__company">Currie &amp; Brown</span>
+          <span class="exp-item__dates">May 2026 &ndash; Aug 2026</span>
+        </div>
+        <ul class="exp-item__bullets">
+          <li>Led a <strong>four-person</strong> LMU MSBA capstone team developing a predictive unit-rate cost model for concrete construction elements</li>
+          <li>Analyzed proprietary project cost data across markets, project types, and time periods, integrating <strong>economic and commodity indicators</strong> to identify key cost drivers</li>
+          <li>Built a <strong>Power BI dashboard</strong> and Excel estimating tool as client-facing deliverables, presented to the client's cost estimating and construction business intelligence teams</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-item__head">
+          <h3 class="exp-item__role">Data Pipeline Consultant</h3>
+          <span class="exp-item__company">Polis Assist</span>
+          <span class="exp-item__dates">Jun 2025 &ndash; Present</span>
+        </div>
+        <ul class="exp-item__bullets">
+          <li>Engineered ETL pipelines transforming raw municipal parking data into deployment-ready datasets, cutting city onboarding time by <strong>40%</strong> across <strong>5+ municipal clients</strong></li>
+          <li>Architected standardized field-to-schema mappings and automated data validation checks, reducing import errors by <strong>30%</strong> across city rollouts</li>
+          <li>Built automated address-search import packages that eliminated <strong>60%</strong> of manual processing steps, accelerating municipality go-live timelines</li>
+          <li>Authored test plans, acceptance criteria, and technical documentation; partnered with engineering on cross-functional validation, compressing QA cycle time</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-item__head">
+          <h3 class="exp-item__role">Data Analyst Intern</h3>
+          <span class="exp-item__company">Dad Brand Apparel</span>
+          <span class="exp-item__dates">Sep 2024 &ndash; Jun 2025</span>
+        </div>
+        <ul class="exp-item__bullets">
+          <li>Analyzed <strong>500K+ customer interactions</strong> via Python and SQL to uncover segmentation opportunities, driving a <strong>25% lift</strong> in conversion rates</li>
+          <li>Built inventory demand-forecasting models that reduced stockouts by <strong>30%</strong>, improving in-stock availability during peak sales periods</li>
+          <li>Applied cohort analysis and attribution modeling across paid and organic channels, improving return on ad spend by <strong>~15%</strong></li>
+          <li>Automated Tableau KPI dashboards, cutting manual reporting time by <strong>70%</strong> and enabling real-time decision-making for the merchandising team</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-item__head">
+          <h3 class="exp-item__role">Operations Intern</h3>
+          <span class="exp-item__company">Dreams for Schools</span>
+          <span class="exp-item__dates">Sep 2023 &ndash; Dec 2023</span>
+        </div>
+        <ul class="exp-item__bullets">
+          <li>Migrated <strong>2,500+ CRM records</strong> and designed automated follow-up workflows, cutting manual outreach time by <strong>50%</strong></li>
+          <li>Built financial dashboards from historical organizational data that directly shaped <strong>20%</strong> of annual budget decisions</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-item__head">
+          <h3 class="exp-item__role">Crew Lead</h3>
+          <span class="exp-item__company">UCI Student Center &amp; Event Services</span>
+          <span class="exp-item__dates">Nov 2022 &ndash; Jun 2024</span>
+        </div>
+        <ul class="exp-item__bullets">
+          <li>Promoted twice in 20 months, from Operations Crew to Building Lead to Crew Lead</li>
+          <li>Supervised a <strong>20-person crew</strong> across high-volume night shifts and coordinated logistics for events of up to <strong>1,500 attendees</strong></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── AWARDS ─────────────────────────────────────────────── -->
 <section id="awards" class="section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-index">// 02</span>
+      <span class="section-index">// 03</span>
       <h2>Awards</h2>
     </div>
 
@@ -268,7 +351,7 @@
 <section id="about" class="section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-index">// 03</span>
+      <span class="section-index">// 04</span>
       <h2>About</h2>
     </div>
 
@@ -317,7 +400,7 @@
 <section id="skills" class="section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-index">// 04</span>
+      <span class="section-index">// 05</span>
       <h2>Skills</h2>
     </div>
 
@@ -370,7 +453,7 @@
 <section id="certifications" class="section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-index">// 05</span>
+      <span class="section-index">// 06</span>
       <h2>Certifications</h2>
     </div>
 
@@ -468,7 +551,7 @@
 <section id="contact" class="section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-index">// 06</span>
+      <span class="section-index">// 07</span>
       <h2>Contact</h2>
     </div>
 
